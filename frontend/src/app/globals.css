@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #1a365d;
+  --color-blueblack-white: #ffffff;
+  --color-surface: #20406a;
+  --color-surface-alt: #162f4d;
+  --color-surface-emphasis: #2a4b79;
+  --color-primary-accent: #d93a3a;
+  --color-primary: #ffffff;
+  --color-secondary: #e0e0e0;
+  --color-blue: #3b82f6;
+  --color-blue-light: #60a5fa;
+  --color-muted: #b0bec5;
+  --color-border: rgba(255, 255, 255, 0.15);
+  --color-input-bg: rgba(255, 255, 255, 0.08);
+  --color-shadow: rgba(0, 0, 0, 0.25);
+  --color-light: #ffffff;
+  --base-font-size: 16px;
+  --border-radius: 8px;
+}
+
+[data-mantine-color-scheme="light"] {
+  --color-background: #f4f7f6;
+  --color-blueblack-white: #20406a;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f0f3f2;
+  --color-surface-emphasis: #e9ecef;
+  --color-primary: #1a202c;
+  --color-secondary: #4a5568;
+  --color-muted: #718096;
+  --color-border: rgba(0, 0, 0, 0.1);
+  --color-input-bg: #edf2f7;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.page-slide-up {
+  animation: slideUp 0.6s ease forwards;
+}
