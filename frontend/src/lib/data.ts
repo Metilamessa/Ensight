@@ -207,3 +207,13 @@ export const Footermenus = [
     ],
   },
 ];
+
+export const startups = [
+  {
+    id: "1",
+    name: "TechStar",
+    description: "Innovative tech solutions.",
+    image: "/images/startup1.jpg",
+    href: "/startups/techstar",
+  },
+];

@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Title, Text, Group, Badge } from "@mantine/core";
 import Sidebar from "@/components/ui/Sidebar";
 import { SocialShare } from "@/components/ui/SocialShare";
@@ -10,6 +11,21 @@ interface ArticleDetailProps {
 }
 
 export function ArticleDetail({ article }: ArticleDetailProps) {
+  const [imageSrc, setImageSrc] = useState<string>("/images/logo-red.png");
+
+  useEffect(() => {
+    if (!article?.image) return;
+
+    if (article.image instanceof File) {
+      const url = URL.createObjectURL(article.image);
+      setImageSrc(url);
+
+      return () => URL.revokeObjectURL(url);
+    } else {
+      setImageSrc(article.image);
+    }
+  }, [article?.image]);
+
   return (
     <section id="article-detail" className="w-full px-4 py-12">
       <div className="flex flex-col mx-auto sm:flex-row sm:items-start sm:space-x-8">
@@ -42,12 +58,13 @@ export function ArticleDetail({ article }: ArticleDetailProps) {
 
           <div className="relative my-6 w-full h-[240px] sm:h-[400px]">
             <Image
-              src={article?.image || "/images/logo-red.png"}
+              src={imageSrc}
               alt="Article Image"
               className="object-cover rounded-lg"
               fill
               sizes="(max-width: 640px) 100vw, 680px"
             />
+
             <div className="absolute top-4 left-4">
               <Image
                 src="/images/logo-red.png"
@@ -56,6 +73,7 @@ export function ArticleDetail({ article }: ArticleDetailProps) {
                 width={100}
               />
             </div>
+
             <div
               className="absolute bottom-0 left-0 w-full h-1/3"
               style={{
@@ -63,6 +81,7 @@ export function ArticleDetail({ article }: ArticleDetailProps) {
                   "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1))",
               }}
             />
+
             <div className="absolute bottom-4 left-4 max-w-[90%]">
               <Text
                 className="font-serif text-xl font-extrabold sm:text-2xl md:text-3xl"

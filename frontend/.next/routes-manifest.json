@@ -1,0 +1,207 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "dynamicRoutes": [
+    {
+      "page": "/api/article/id/[id]",
+      "regex": "^/api/article/id/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/article/id/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/article/id/[id]/approve",
+      "regex": "^/api/article/id/([^/]+?)/approve(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/article/id/(?<nxtPid>[^/]+?)/approve(?:/)?$"
+    },
+    {
+      "page": "/api/article/[category]",
+      "regex": "^/api/article/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPcategory": "nxtPcategory"
+      },
+      "namedRegex": "^/api/article/(?<nxtPcategory>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/article/[category]/[subcategory]",
+      "regex": "^/api/article/([^/]+?)/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPcategory": "nxtPcategory",
+        "nxtPsubcategory": "nxtPsubcategory"
+      },
+      "namedRegex": "^/api/article/(?<nxtPcategory>[^/]+?)/(?<nxtPsubcategory>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/article/[category]/[subcategory]/[slug]",
+      "regex": "^/api/article/([^/]+?)/([^/]+?)/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPcategory": "nxtPcategory",
+        "nxtPsubcategory": "nxtPsubcategory",
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/api/article/(?<nxtPcategory>[^/]+?)/(?<nxtPsubcategory>[^/]+?)/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/corporate/[id]",
+      "regex": "^/api/corporate/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/corporate/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/profile/[user_id]",
+      "regex": "^/api/profile/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPuser_id": "nxtPuser_id"
+      },
+      "namedRegex": "^/api/profile/(?<nxtPuser_id>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/profile/[user_id]/saved_articles",
+      "regex": "^/api/profile/([^/]+?)/saved_articles(?:/)?$",
+      "routeKeys": {
+        "nxtPuser_id": "nxtPuser_id"
+      },
+      "namedRegex": "^/api/profile/(?<nxtPuser_id>[^/]+?)/saved_articles(?:/)?$"
+    },
+    {
+      "page": "/api/profile/[user_id]/saved_articles/[article_id]",
+      "regex": "^/api/profile/([^/]+?)/saved_articles/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPuser_id": "nxtPuser_id",
+        "nxtParticle_id": "nxtParticle_id"
+      },
+      "namedRegex": "^/api/profile/(?<nxtPuser_id>[^/]+?)/saved_articles/(?<nxtParticle_id>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/subscribe/[plan_id]",
+      "regex": "^/api/subscribe/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPplan_id": "nxtPplan_id"
+      },
+      "namedRegex": "^/api/subscribe/(?<nxtPplan_id>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/[category]/[subcategory]",
+      "regex": "^/([^/]+?)/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPcategory": "nxtPcategory",
+        "nxtPsubcategory": "nxtPsubcategory"
+      },
+      "namedRegex": "^/(?<nxtPcategory>[^/]+?)/(?<nxtPsubcategory>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/[category]/[subcategory]/[slug]",
+      "regex": "^/([^/]+?)/([^/]+?)/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPcategory": "nxtPcategory",
+        "nxtPsubcategory": "nxtPsubcategory",
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/(?<nxtPcategory>[^/]+?)/(?<nxtPsubcategory>[^/]+?)/(?<nxtPslug>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/analysis",
+      "regex": "^/analysis(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/analysis(?:/)?$"
+    },
+    {
+      "page": "/corporate",
+      "regex": "^/corporate(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/corporate(?:/)?$"
+    },
+    {
+      "page": "/favicon.ico",
+      "regex": "^/favicon\\.ico(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/favicon\\.ico(?:/)?$"
+    },
+    {
+      "page": "/login",
+      "regex": "^/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/login(?:/)?$"
+    },
+    {
+      "page": "/management",
+      "regex": "^/management(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/management(?:/)?$"
+    },
+    {
+      "page": "/profile",
+      "regex": "^/profile(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/profile(?:/)?$"
+    },
+    {
+      "page": "/resources",
+      "regex": "^/resources(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/resources(?:/)?$"
+    },
+    {
+      "page": "/signup",
+      "regex": "^/signup(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/signup(?:/)?$"
+    },
+    {
+      "page": "/subscribe",
+      "regex": "^/subscribe(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/subscribe(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "RSC",
+    "varyHeader": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch",
+    "prefetchHeader": "Next-Router-Prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "Next-Router-Segment-Prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  },
+  "rewrites": []
+}

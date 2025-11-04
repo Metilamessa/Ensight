@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Title, Text, Skeleton } from "@mantine/core";
 import { Carousel } from "@mantine/carousel";
 import { SharedButton } from "@/components/ui/SharedButton";
@@ -15,17 +16,32 @@ interface ArticleDetailProps {
   isLoading?: boolean;
 }
 
-
 export function HeroSection({
   article,
   isLoading = false,
 }: ArticleDetailProps) {
+  const [imageSrc, setImageSrc] = useState<string>("/images/logo-red.png");
+  const autoplay = Autoplay({ delay: 2000 });
+
   const handleScroll = () => {
     const detailSection = document.getElementById("article-detail");
     if (detailSection) {
       detailSection.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  useEffect(() => {
+    if (!article?.image) return;
+
+    if (article.image instanceof File) {
+      const url = URL.createObjectURL(article.image);
+      setImageSrc(url);
+
+      return () => URL.revokeObjectURL(url); 
+    } else {
+      setImageSrc(article.image);
+    }
+  }, [article?.image]);
 
   return (
     <section className="py-20 text-left border-b bg-surface border-border">
@@ -53,7 +69,6 @@ export function HeroSection({
                 className="font-serif text-primary"
                 size="md"
                 my={20}
-                // Use inline styles for a safe CSS line-clamp fallback (no plugin required)
                 style={{
                   display: "-webkit-box",
                   WebkitLineClamp: 4,
@@ -81,21 +96,21 @@ export function HeroSection({
           ) : (
             <Carousel
               withIndicators
-              loop
               height={400}
-              plugins={[Autoplay({ delay: 2000 })]}
+              slideSize="100%"
+              slideGap="md"
+              emblaOptions={{ loop: true }} 
+              plugins={[autoplay]}
             >
-             {[typeof article?.image === "string" ? article.image : "/images/logo-red.png"].map((src, index) => (
-   <Carousel.Slide key={index}>
-                  <Image
-                    src={src}
-                    alt="article images"
-                    width={600}
-                    height={400}
-                    className="object-cover w-full h-full rounded-xl"
-                  />
-                </Carousel.Slide>
-              ))}
+              <Carousel.Slide key={0}>
+                <Image
+                  src={imageSrc}
+                  alt="article image"
+                  width={600}
+                  height={400}
+                  className="object-cover w-full h-full rounded-xl"
+                />
+              </Carousel.Slide>
             </Carousel>
           )}
         </div>

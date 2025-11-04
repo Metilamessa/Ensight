@@ -10,6 +10,7 @@ interface User {
   firstName: string;
   lastName: string;
   email: string;
+  password?: string; // optional, matches UserFormBase
   role: string;
 }
 
@@ -32,7 +33,7 @@ export default function AddUserForm({ onClose }: AddUserFormProps) {
     firstName: "",
     lastName: "",
     email: "",
-    password: "",
+    password: "", // optional but initialized
     role: "",
   };
 
@@ -41,15 +42,17 @@ export default function AddUserForm({ onClose }: AddUserFormProps) {
       toast.error("Authentication token missing");
       return;
     }
+
     setLoading(true);
+
     try {
+      // Ensure password is provided when creating a user
       if (!values.password || values.password.length < 6) {
         toast.error("Password must be at least 6 characters");
         setLoading(false);
         return;
       }
 
-      // Backend expects FormData with snake_case field names
       const formData = new FormData();
       formData.append("first_name", values.firstName);
       formData.append("last_name", values.lastName);
@@ -73,7 +76,6 @@ export default function AddUserForm({ onClose }: AddUserFormProps) {
 
       toast.success("User created successfully");
       onClose();
-      //eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       toast.error(error.message || "Failed to create user");
     } finally {
