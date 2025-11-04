@@ -252,7 +252,7 @@ const ProfilePage: React.FC = () => {
       {profile ? (
         <>
           <Title order={1} className="mb-2 text-blue">
-            Welcome, {profile?.firstName || profile?.first_name || ""} {profile?.lastName || profile?.last_name || ""}{" "}
+            Welcome, {profile?.firstName || profile?.firstName || ""} {profile?.lastName || profile?.lastName || ""}{" "}
             <span className="mb-6 text-sm text-muted"> ({profile?.email})</span>
           </Title>
 
