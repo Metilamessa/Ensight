@@ -1,0 +1,9 @@
+{
+  "/[category]/[subcategory]/[slug]/page": "app/[category]/[subcategory]/[slug]/page.js",
+  "/api/article/id/[id]/route": "app/api/article/id/[id]/route.js",
+  "/api/article/route": "app/api/article/route.js",
+  "/api/corporate/route": "app/api/corporate/route.js",
+  "/api/profile/route": "app/api/profile/route.js",
+  "/api/resources/route": "app/api/resources/route.js",
+  "/management/page": "app/management/page.js"
+}
